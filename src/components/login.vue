@@ -1,11 +1,17 @@
 <template>
     <div class="container">
         <form id="login_bg">
-            <div class="login_item"><span>账号：</span><input class="log_in_input" type="text" placeholder="请输入账号"></div>
-            <div class="login_item"><span>密码：</span><input class="log_in_input" type="password" placeholder="请输入密码"></div>
+            <div class="login_item">
+                <span>账号：</span>
+                <input class="log_in_input" type="text" placeholder="请输入账号" v-model="userName">
+            </div>
+            <div class="login_item">
+                <span>密码：</span>
+                <input class="log_in_input" type="password" placeholder="请输入密码" v-model="passWord">
+            </div>
             <div class="btn login_item">
                 <el-button type="primary">登录</el-button>
-                <el-button>取消</el-button>
+                <el-button>重置</el-button>
             </div>
         </form>
     </div>
@@ -13,7 +19,13 @@
 
 <script>
     export default {
-        name: "login"
+        name: "login",
+        data(){
+            return {
+                userName:"",
+                passWord:""
+            }
+        }
     }
 </script>
 

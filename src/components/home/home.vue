@@ -16,11 +16,16 @@
 </script>
 
 <style scoped>
+    .home {
+        width: inherit;
+        height: inherit;
+    }
+
     .bottom-tabbar {
         position: fixed;
         left: 0px;
         bottom: 0px;
         width: inherit;
-        height: 149px;
+        height: 115px;
     }
 </style>

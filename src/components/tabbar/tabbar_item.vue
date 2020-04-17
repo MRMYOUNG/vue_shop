@@ -1,6 +1,7 @@
 <template>
-    <div>
-        {{ message }}
+    <div class="tabbar_item">
+        <span class="iconfont" v-html="icon"></span>
+        <span class="iconfont">{{ name }}</span>
     </div>
 </template>
 
@@ -9,11 +10,25 @@
         name: "tabbar_item",
         props: ["item_data"],
         data() {
-            // message:item_data[0].name
-        }
+            return {
+                icon: this.item_data.icon,
+                icon_focus: this.item_data.icon_focus,
+                name: this.item_data.name,
+            }
+        },
+        methods: {}
     }
 </script>
 
 <style scoped>
+    .tabbar_item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 
+    .iconfont {
+        font-size: 23px;
+    }
 </style>

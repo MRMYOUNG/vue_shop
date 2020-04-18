@@ -11,10 +11,26 @@ Vue.use(VueRouter)
 const login = () => import('../components/login')
 const home = () => import('../components/home/home')
 
+//home页面子路由
+const homeBody = () => import('../components/home/homeBody/homeBody')
+const classification = () => import('../components/home/classification/classification')
+const shoppingCart = () => import('../components/home/shoppingCart/shoppingCart')
+const my = () => import('../components/home/my/my')
+
 const routes = [
     {path:'/',redirect:'/login'},
     {path:'/login',component:login},
-    {path:'/home',component:home}
+    {
+        path:'/home',
+        component:home,
+        children:[
+            {path:'', redirect:'homeBody'},
+            {path:'homeBody', component:homeBody},
+            {path:'classification', component:classification},
+            {path:'shoppingCart', component:shoppingCart},
+            {path:'my', component:my},
+        ]
+    }
 ]
 //
 const router = new VueRouter({

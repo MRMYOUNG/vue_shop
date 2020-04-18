@@ -1,11 +1,12 @@
 <template>
     <div class="home">
+        <router-view class="luyouzhaneifu"></router-view>
         <tabbar class="bottom-tabbar"/>
     </div>
 </template>
 
 <script>
-    import tabbar from "../tabbar/tabbar"
+    import tabbar from "./tabbar/tabbar"
 
     export default {
         name: "home",
@@ -26,6 +27,6 @@
         left: 0px;
         bottom: 0px;
         width: inherit;
-        height: 115px;
+        height: 84px;
     }
 </style>

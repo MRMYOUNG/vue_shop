@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .circle{
+        width: 30px;
+        height: 30px;
+        border-radius: 15px;
+        background-color: white;
+        border: 1px solid #000000;
+    }
+</style>
+<body>
+    <div class="circle red"></div>
+    <div class="circle yellow"></div>
+    <div class="circle green"></div>
+</body>
+    <script>
+        let a = new Promise(()=>{
+            document.getElementsByClassName("red").style.backgroundColor = "red"
+            setTimeout(()=>{
+                console.log("red")
+            },3000)
+        }).then(()=>{
+            document.getElementsByClassName("yellow").style.backgroundColor = "yellow"
+            setTimeout(()=>{
+                console.log("yellow")
+            },1000)
+        }).then(()=>{
+            document.getElementsByClassName("yellow").style.backgroundColor = "green"
+            setTimeout(()=>{
+                console.log("green")
+            },2000)
+        })
+
+    </script>
+</html>

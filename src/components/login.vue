@@ -10,20 +10,40 @@
                 <input class="log_in_input" type="password" placeholder="请输入密码" v-model="passWord">
             </div>
             <div class="btn login_item">
-                <el-button type="primary">登录</el-button>
-                <el-button>重置</el-button>
+                <el-button type="primary" @click="login_in">登录</el-button>
+                <el-button @click="reset">重置</el-button>
             </div>
         </form>
     </div>
 </template>
 
 <script>
+    import {login} from '../network/login'
     export default {
         name: "login",
         data(){
             return {
                 userName:"",
                 passWord:""
+            }
+        },
+        methods:{
+            login_in(){
+                const data = {
+                    userName: this.userName,
+                    passWord: this.passWord
+                }
+                login(data).then(
+                    response =>{
+                        if(response.data.data.login === "success"){
+                            this.$router.push("/home")
+                        }
+                    }
+                )
+            },
+            reset(){
+                this.userName="";
+                this.passWord=""
             }
         }
     }
@@ -43,14 +63,14 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        width: 500px;
-        height: 300px;
+        width: 336px;
+        height: 250px;
         border-radius: 10px;
         background-color: rgb(255,251,240);
         /*font-family: "Microsoft JhengHei UI";*/
         font-family: Helvetica;
         font-weight: bold;
-        font-size: 25px;
+        font-size: 20px;
     }
     #login_bg div:nth-child(1){
         padding-top: 70px;
